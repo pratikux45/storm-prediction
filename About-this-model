@@ -1,0 +1,59 @@
+# India Storm Prediction - Model Documentation
+
+## 1. Current State: The Mock Algorithm (Rules-Based Logic)
+
+Currently, the application does not use a trained Machine Learning model. Instead, it uses a **heuristics-based mock algorithm** located in `backend/app/main.py` under the `/api/predict` endpoint.
+
+### How it Calculates Risk:
+The algorithm assigns a "storm probability" score out of 100 based on standard meteorological thresholds:
+- **Base Risk:** Every calculation starts with a baseline risk of `10%`.
+- **Temperature Factor:**
+  - `> 38°C`: Adds `+25%`
+  - `> 33°C`: Adds `+15%`
+- **Humidity Factor:**
+  - `> 75%`: Adds `+30%`
+  - `> 60%`: Adds `+15%`
+- **Wind Speed Factor:**
+  - `> 30 mph`: Adds `+25%`
+  - `> 15 mph`: Adds `+10%`
+- **Randomizer:** To simulate the slight variance of an ML model, it applies a random fluctuation between `-5%` and `+5%`.
+
+### Risk Categories:
+- **Critical Risk:** Probability > 75%
+- **Elevated Risk:** Probability > 40%
+- **Low Risk:** Probability <= 40%
+
+---
+
+## 2. The Data Structure (Historical Data)
+
+The historical data driving the charts and forecast originates from the `india_locationss.csv` file.
+When the backend starts, this CSV is parsed by the seeding script and stored in a local SQLite database (`backend/storm_data.db`).
+
+**Key Data Points Tracked:**
+- `location` (City Name)
+- `date` (YYYY-MM-DD)
+- `temperature` (°C)
+- `relative_humidity` (%)
+- `wind_speed` (mph)
+- `pressure` (kPa)
+- `precipitation` (mm)
+
+**Definition of a "Storm Event" (Historical):**
+For the historical charts, a past day is classified as having a "storm event" if:
+- `precipitation > 5.0 mm` OR
+- `wind_speed > 25.0 mph`
+
+---
+
+## 3. Roadmap: Upgrading to True Machine Learning
+
+To make this a high-level, production-grade application for clients, the next step is replacing the mock algorithm with a genuine AI model.
+
+### Recommended Approach:
+1. **Data Preparation:** Use `pandas` in Python to clean and normalize the CSV data. Create a target variable (e.g., `is_storm`) based on historical wind and precipitation thresholds.
+2. **Model Selection:**
+   - **XGBoost or Random Forest:** Best for tabular weather data to predict classification (Storm vs. No Storm) or regression (Probability percentage).
+   - **LSTM (Deep Learning):** If the client wants time-series forecasting (predicting tomorrow based on the sequence of the last 7 days).
+3. **Training & Export:** Train the model using `scikit-learn`, evaluate its accuracy, and export it as a serialized `.pkl` or `.joblib` file.
+4. **Integration:** Update `backend/app/main.py` to load the `.pkl` file on startup. Replace the mock point system with `model.predict_proba(current_weather_features)` to return genuine AI-driven predictions.

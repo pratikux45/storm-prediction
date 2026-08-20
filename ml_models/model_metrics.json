@@ -1,0 +1,102 @@
+[
+    {
+        "model_name": "Random Forest",
+        "accuracy": 0.943,
+        "precision": 0.943704,
+        "recall": 0.943,
+        "f1_score": 0.943138,
+        "confusion_matrix": [
+            [
+                479,
+                21,
+                0
+            ],
+            [
+                19,
+                327,
+                4
+            ],
+            [
+                0,
+                13,
+                137
+            ]
+        ],
+        "file_path": "../ml_models/storm_predictor_random_forest.pkl"
+    },
+    {
+        "model_name": "Logistic Regression",
+        "accuracy": 0.944,
+        "precision": 0.944144,
+        "recall": 0.944,
+        "f1_score": 0.944019,
+        "confusion_matrix": [
+            [
+                480,
+                20,
+                0
+            ],
+            [
+                25,
+                322,
+                3
+            ],
+            [
+                0,
+                8,
+                142
+            ]
+        ],
+        "file_path": "../ml_models/storm_predictor_logistic_regression.pkl"
+    },
+    {
+        "model_name": "Gradient Boosting",
+        "accuracy": 0.946,
+        "precision": 0.946387,
+        "recall": 0.946,
+        "f1_score": 0.945955,
+        "confusion_matrix": [
+            [
+                485,
+                15,
+                0
+            ],
+            [
+                20,
+                326,
+                4
+            ],
+            [
+                0,
+                15,
+                135
+            ]
+        ],
+        "file_path": "../ml_models/storm_predictor_gradient_boosting.pkl"
+    },
+    {
+        "model_name": "Deep Learning",
+        "accuracy": 0.985,
+        "precision": 0.985043,
+        "recall": 0.985,
+        "f1_score": 0.984998,
+        "confusion_matrix": [
+            [
+                496,
+                4,
+                0
+            ],
+            [
+                8,
+                342,
+                0
+            ],
+            [
+                0,
+                3,
+                147
+            ]
+        ],
+        "file_path": "../ml_models/storm_predictor_deep_learning.pkl"
+    }
+]

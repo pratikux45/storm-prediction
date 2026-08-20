@@ -1,0 +1,46 @@
+# 🌪️ India Storm Prediction — Data Analysis & ML Notebook
+**Project:** India Storm Prediction System  
+**Authors:** Storm Analytics Team  
+**Dataset:** Synthetic Indian meteorological data (5,000 samples)  
+**Models:** Logistic Regression · Random Forest · Gradient Boosting · Deep Learning  
+
+---
+## 📋 Project Overview
+This notebook provides an end-to-end machine learning pipeline for predicting cyclonic storm risk across Indian cities. We analyse meteorological features, engineer interaction terms, train multiple classifiers, and compare their performance using standardised metrics.
+
+**Storm Risk Classes:**
+- 🟢 **Low Risk (0)** — Stable atmospheric conditions (~50% of data)
+- 🟡 **Moderate Risk (1)** — Thunderstorm potential (~35% of data)
+- 🔴 **High Risk (2)** — Severe cyclonic conditions (~15% of data)
+
+---
+## 1️⃣ Imports & Environment Setup
+---
+## 2️⃣ Dataset Generation & Loading
+---
+## 3️⃣ Data Cleaning & Preprocessing
+---
+## 4️⃣ Exploratory Data Analysis (EDA)
+---
+## 5️⃣ Feature Engineering
+---
+## 6️⃣ Model Training
+---
+## 7️⃣ Model Evaluation
+---
+## 8️⃣ Save Models & Summary
+---
+---
+## ✅ Notebook Complete!
+
+| File | Description |
+|------|-------------|
+| `ml_models/storm_predictor_random_forest.pkl` | Random Forest model |
+| `ml_models/storm_predictor_logistic_regression.pkl` | Logistic Regression model |
+| `ml_models/storm_predictor_gradient_boosting.pkl` | Gradient Boosting model |
+| `ml_models/model_metrics.json` | Evaluation metrics for all models |
+| `ml_models/training_history.json` | 5-fold CV fold-by-fold F1 scores |
+
+**API Endpoints (ml_service.py):** `POST /predict` · `GET /model-performance` · `POST /predict/batch` · `GET /models` · `GET /health`
+
+---

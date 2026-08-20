@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", sans-serif;
+  
+  --color-background: #0f172a; /* slate-900 */
+  --color-foreground: #f8fafc; /* slate-50 */
+  
+  --color-primary: #3b82f6; /* blue-500 */
+  --color-primary-foreground: #ffffff;
+  
+  --color-secondary: #1e293b; /* slate-800 */
+  --color-secondary-foreground: #f8fafc;
+  
+  --color-accent: #0ea5e9; /* sky-500 */
+  --color-accent-foreground: #ffffff;
+  
+  --color-destructive: #ef4444; /* red-500 */
+  --color-destructive-foreground: #ffffff;
+  
+  --color-muted: #334155; /* slate-700 */
+  --color-muted-foreground: #94a3b8; /* slate-400 */
+  
+  --color-card: #1e293b; /* slate-800 */
+  --color-card-foreground: #f8fafc; /* slate-50 */
+  
+  --color-popover: #1e293b; /* slate-800 */
+  --color-popover-foreground: #f8fafc; /* slate-50 */
+  
+  --color-border: #334155; /* slate-700 */
+  --color-input: #334155; /* slate-700 */
+  --color-ring: #3b82f6; /* blue-500 */
+  
+  --radius-lg: 0.5rem;
+  --radius-md: calc(0.5rem - 2px);
+  --radius-sm: calc(0.5rem - 4px);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  body, input, button, select, textarea {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+  }
+}
